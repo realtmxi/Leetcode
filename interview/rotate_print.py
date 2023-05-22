@@ -1,3 +1,6 @@
+# 数灵元科技面试
+# Python 顺时针旋转打印二维数组
+
 def rotate_print(matrix):
     rlt = []
     while matrix:
@@ -5,7 +8,7 @@ def rotate_print(matrix):
         if matrix and matrix[0]:
             for row in matrix:
                 rlt.append(row.pop())
-        if matrix: 
+        if matrix:
             rlt += matrix.pop()[::-1]
         if matrix and matrix[0]:
             for row in matrix[::-1]:
