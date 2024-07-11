@@ -2,12 +2,13 @@
 from typing import List
 class Solution:
     def compute_prefix_function(self, P, m) -> List[int]:
+
         pi = [0] * m
         k = 0
         for i in range(1, m):
-            while k > 0 and P[k+1] != P[i]:
-                k = pi[k]
-            if P[k+1] == P[i]:
+            while k > 0 and P[k] != P[i]:
+                k = pi[k-1]
+            if P[k] == P[i]:
                 k += 1
             pi[i] = k 
         return pi
