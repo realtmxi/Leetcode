@@ -16,18 +16,18 @@ from typing import List
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        ans = []
-        def backtrack(S, left, right):
-            if len(S) == 2 * n:
-                ans.append("".join(S))
+        result = []
+        def backtrack(temp, left, right):
+            if len(temp) == 2 * n:
+                result.append("".join(temp))
                 return
             if left < n:
-                S.append("(")
-                backtrack(S, left+1, right)
-                S.pop()
+                temp.append("(")
+                backtrack(temp, left+1, right)
+                temp.pop()
             if right < left:
-                S.append(')')
-                backtrack(S, left, right + 1)
-                S.pop()
+                temp.append(')')
+                backtrack(temp, left, right + 1)
+                temp.pop()
         backtrack([], 0, 0)
-        return ans
+        return result
